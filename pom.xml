@@ -21,11 +21,16 @@
         <!-- https://mvnrepository.com/artifact/javax/javaee-web-api -->
         <dependency>
             <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>8.0.1</version>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
             <scope>provided</scope>
         </dependency>
 
     </dependencies>
+
+    <!-- modules-->
+    <modules>
+        <module>applicationA</module>
+    </modules>
 
 </project>
