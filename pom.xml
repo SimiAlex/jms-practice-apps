@@ -13,6 +13,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
     <!-- dependencies -->
@@ -32,5 +33,17 @@
     <modules>
         <module>applicationA</module>
     </modules>
+
+    <!-- build -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>2.1.0.Beta1</version>
+            </plugin>
+        </plugins>
+        <finalName>applicationA</finalName>
+    </build>
 
 </project>
