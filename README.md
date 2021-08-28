@@ -4,4 +4,4 @@ Practice JMS between two Java EE applications.
 
 ### Masterplan
 
-<img src="images/masterplan.jpg" alt="Masterplan" width="500">
+<img src="images/masterplan.jpg" alt="Masterplan" width="600">
