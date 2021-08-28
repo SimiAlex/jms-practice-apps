@@ -8,38 +8,54 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- modules-->
+    <modules>
+        <module>applicationA</module>
+    </modules>
+
     <!-- properties -->
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
+
+        <!-- dependency versions -->
+        <javaee-api.version>8.0</javaee-api.version>
+        <jaxb-impl.version>3.0.1</jaxb-impl.version>
     </properties>
+
+    <!-- dependency management -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${javaee-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
+                <version>${jaxb-impl.version}</version>
+                <scope>compile</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <!-- dependencies -->
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/javax/javaee-web-api -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>8.0</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>3.0.1</version>
-            <scope>compile</scope>
         </dependency>
-
     </dependencies>
-
-    <!-- modules-->
-    <modules>
-        <module>applicationA</module>
-    </modules>
 
     <!-- build -->
     <build>
