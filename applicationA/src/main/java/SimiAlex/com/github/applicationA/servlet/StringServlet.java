@@ -1,12 +1,7 @@
 package SimiAlex.com.github.applicationA.servlet;
 
-import SimiAlex.com.github.applicationA.ejb.MessageProducerEjb;
 import SimiAlex.com.github.applicationA.ejb.StringMessageProducerEjb;
-import SimiAlex.com.github.applicationA.model.Car;
-import jakarta.xml.bind.JAXBException;
-
 import javax.ejb.EJB;
-import javax.jms.JMSException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,13 +25,13 @@ public class StringServlet extends HttpServlet {
         stringMessageProducerEjb.sendMessage(message);
 
         //print messages from queue
-        String messages = null;
-        try {
-            messages = stringMessageProducerEjb.readMessagesFromQueue();
-        } catch (JMSException e) {
-            e.printStackTrace();
-        }
-
-        resp.getWriter().write(messages);
+//        String messages = null;
+//        try {
+//            messages = stringMessageProducerEjb.readMessagesFromQueue();
+//        } catch (JMSException e) {
+//            e.printStackTrace();
+//        }
+//
+//        resp.getWriter().write(messages);
     }
 }

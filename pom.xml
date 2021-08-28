@@ -11,6 +11,7 @@
     <!-- modules-->
     <modules>
         <module>applicationA</module>
+        <module>applicationB</module>
     </modules>
 
     <!-- properties -->
@@ -66,7 +67,7 @@
                 <version>2.1.0.Beta1</version>
             </plugin>
         </plugins>
-        <finalName>applicationA</finalName>
+        <finalName>mes</finalName>
     </build>
 
 </project>
