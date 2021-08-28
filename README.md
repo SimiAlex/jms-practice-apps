@@ -27,7 +27,9 @@ Practice JMS between two Java EE applications.
    # check if queue was created
    $ /subsystem=messaging-activemq/server=default/jms-queue=myQueue:read-resource
    ```
-   
+   Presently there are 2 queues: 
+      - `myQueue` which contains Car objects as XML
+      - `stringQueue` which contains text messages
 4. Deploy app to application server using Maven Wildfly plugin. Other options are possible.
 
    ```bash
