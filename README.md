@@ -14,7 +14,7 @@ Practice JMS between two Java EE applications.
    when starting it:
    ```bash
    # from WILDFLY_HOME\bin
-   $ standalone.sh -c standalone-full.xml
+   $ standalone.bat -c standalone-full.xml
    ```
 3. Create JMS queues or topics using JBoss Wildfly CLI:
    ```bash
@@ -23,3 +23,8 @@ Practice JMS between two Java EE applications.
    # check if queue was created
    $ /subsystem=messaging-activemq/server=default/jms-queue=myQueue:read-resource
    ```
+4. Deploy app to application server using Maven Wildfly plugin:
+   ```bash
+   $ mvn wildfly:deploy -Dforce=true
+   ```
+   
