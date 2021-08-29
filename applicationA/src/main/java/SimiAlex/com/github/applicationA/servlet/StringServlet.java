@@ -1,6 +1,9 @@
 package SimiAlex.com.github.applicationA.servlet;
 
+import SimiAlex.com.github.applicationA.ejb.MessageProducerEjb;
 import SimiAlex.com.github.applicationA.ejb.StringMessageProducerEjb;
+import SimiAlex.com.github.applicationA.model.Car;
+import jakarta.xml.bind.JAXBException;
 
 import javax.ejb.EJB;
 import javax.jms.JMSException;
@@ -18,18 +21,22 @@ public class StringServlet extends HttpServlet {
     private StringMessageProducerEjb stringMessageProducerEjb;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
-        // recover the String message from the request
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        //create car object with form parameters
         String message = req.getParameter("message");
 
-        // send string message on queue
-        // print messages from queue
+        //send string on queue
+        stringMessageProducerEjb.sendMessage(message);
+
+        //print messages from queue
+        String messages = null;
         try {
-            stringMessageProducerEjb.sendMessage(message);
-            String messages = stringMessageProducerEjb.readMessagesFromQueue();
-            resp.getWriter().write(messages);
-        } catch (JMSException | IOException e) {
+            messages = stringMessageProducerEjb.readMessagesFromQueue();
+        } catch (JMSException e) {
             e.printStackTrace();
         }
+
+        resp.getWriter().write(messages);
     }
 }
