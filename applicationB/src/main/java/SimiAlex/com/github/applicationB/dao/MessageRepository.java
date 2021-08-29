@@ -18,7 +18,6 @@ public class MessageRepository {
     }
 
     public List<MessageDTO> findAllMessages(){
-        List<MessageDTO> messages = em.createQuery("from MessageDTO", MessageDTO.class).getResultList();
-        return messages;
+        return em.createQuery("from MessageDTO", MessageDTO.class).getResultList();
     }
 }
