@@ -1,9 +1,6 @@
 package SimiAlex.com.github.applicationA.servlet;
 
-import SimiAlex.com.github.applicationA.ejb.MessageProducerEjb;
 import SimiAlex.com.github.applicationA.ejb.StringMessageProducerEjb;
-import SimiAlex.com.github.applicationA.model.Car;
-import jakarta.xml.bind.JAXBException;
 
 import javax.ejb.EJB;
 import javax.jms.JMSException;

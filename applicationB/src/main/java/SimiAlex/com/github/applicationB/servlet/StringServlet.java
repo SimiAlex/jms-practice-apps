@@ -5,7 +5,6 @@ import SimiAlex.com.github.applicationB.dto.MessageDTO;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
