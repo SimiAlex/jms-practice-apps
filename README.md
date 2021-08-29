@@ -46,7 +46,7 @@ Practice JMS between two Java EE applications.
 #### JMS destinations
 
 We are using two queues:
-- `myQueue` (java:/myQueue): contains Car objects as XML
+- `carQueue` (java:/carQueue): contains Car objects
 - `stringQueue` (java:/stringQueue): contains text messages
 
 #### Database

@@ -1,10 +1,9 @@
 package SimiAlex.com.github.applicationB.servlet;
 
+import SimiAlex.com.github.applicationB.dao.CrudRepository;
 import SimiAlex.com.github.applicationB.dao.MessageRepository;
 import SimiAlex.com.github.applicationB.dto.MessageDTO;
-
-import java.io.IOException;
-import java.util.List;
+import SimiAlex.com.github.backend.model.Car;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -12,19 +11,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 
-@WebServlet(urlPatterns = {"/"})
-public class StringServlet extends HttpServlet
+@WebServlet(urlPatterns = {"/carServlet"})
+public class CarServlet extends HttpServlet
 {
     @Inject
-    private MessageRepository mr;
+    private CrudRepository<Car> carCrudRepository;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        List<MessageDTO> messages = mr.findAllMessages();
-        req.getSession().setAttribute("messages", messages);
-        // redirect to messages.jsp
-        resp.sendRedirect("messages.jsp");
+        List<Car> cars = carCrudRepository.findAll();
+        req.getSession().setAttribute("cars", cars);
+        // redirect to cars.jsp
+        resp.sendRedirect("cars.jsp");
     }
 }

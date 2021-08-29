@@ -13,12 +13,31 @@
     <artifactId>applicationB</artifactId>
     <packaging>war</packaging>
 
-    <!-- dependencies -->
     <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>SimiAlex.com.github</groupId>
+            <artifactId>backend</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <finalName>applicationB</finalName>
+    </build>
 
 </project>

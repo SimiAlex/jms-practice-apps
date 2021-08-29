@@ -12,6 +12,7 @@
     <modules>
         <module>applicationA</module>
         <module>applicationB</module>
+        <module>backend</module>
     </modules>
 
     <!-- properties -->
@@ -25,6 +26,7 @@
         <javaee-api.version>8.0</javaee-api.version>
         <jaxb-impl.version>3.0.1</jaxb-impl.version>
         <jstl.version>1.2</jstl.version>
+        <jpa.version>2.2</jpa.version>
     </properties>
 
     <!-- dependency management -->
@@ -49,21 +51,13 @@
                 <artifactId>jstl</artifactId>
                 <version>${jstl.version}</version>
             </dependency>
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>javax.persistence-api</artifactId>
+                <version>${jpa.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <!-- dependencies -->
-    <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-        </dependency>
-    </dependencies>
 
     <!-- build -->
     <build>
