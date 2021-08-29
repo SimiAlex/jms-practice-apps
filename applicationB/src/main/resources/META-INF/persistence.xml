@@ -5,6 +5,7 @@
     <persistence-unit name="my-persistence-unit" transaction-type="JTA">
         <jta-data-source>java:/PostgresDS</jta-data-source>
 <!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+        <class>SimiAlex.com.github.backend.model.Car</class>
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="update"/>

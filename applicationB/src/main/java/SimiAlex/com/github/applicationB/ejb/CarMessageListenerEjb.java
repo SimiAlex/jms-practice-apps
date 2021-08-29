@@ -1,11 +1,12 @@
 package SimiAlex.com.github.applicationB.ejb;
 
+import SimiAlex.com.github.applicationB.dao.CrudRepository;
 import SimiAlex.com.github.backend.model.Car;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.inject.Inject;
 import javax.jms.*;
-import java.util.logging.Logger;
 
 @MessageDriven(activationConfig = {
         @ActivationConfigProperty(propertyName = "destination", propertyValue = "queue/carQueue"),
@@ -14,19 +15,15 @@ import java.util.logging.Logger;
 })
 public class CarMessageListenerEjb implements MessageListener {
 
-    private final Logger LOGGER = Logger.getLogger(CarMessageListenerEjb.class.toString());
-//    @Inject
-//    private MessageRepository mr;
+    @Inject
+    private CrudRepository<Car> carCrudRepository;
 
     @Override
     public void onMessage(Message message) {
         try {
             ObjectMessage objectMessage = (ObjectMessage) message;
             Car receivedCar = objectMessage.getBody(Car.class);
-            LOGGER.info("--------------------------------------................................");
-            LOGGER.info(receivedCar.toString());
-            LOGGER.info("--------------------------------------................................");
-
+            carCrudRepository.add(receivedCar);
         } catch (JMSException e) {
             e.printStackTrace();
         }
