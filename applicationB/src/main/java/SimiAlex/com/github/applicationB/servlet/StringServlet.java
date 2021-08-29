@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/"})
 public class StringServlet extends HttpServlet
 {
-    private final Logger LOGGER = Logger.getLogger(StringServlet.class.toString());
     @Inject
     private MessageRepository mr;
 
@@ -25,7 +24,6 @@ public class StringServlet extends HttpServlet
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         List<MessageDTO> messages = mr.findAllMessages();
-        LOGGER.info(messages.toString() + "....................---------------------..................");
         req.getSession().setAttribute("messages", messages);
         // redirect to messages.jsp
         resp.sendRedirect("messages.jsp");

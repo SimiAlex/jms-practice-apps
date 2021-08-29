@@ -19,8 +19,6 @@ import java.util.logging.Logger;
 })
 public class StringMessageListenerEjb implements MessageListener {
 
-    private  final Logger LOGGER = Logger.getLogger(StringMessageListenerEjb.class.toString());
-
     @Inject
     private MessageRepository mr;
 
@@ -33,8 +31,6 @@ public class StringMessageListenerEjb implements MessageListener {
             mdto.setMessage(text);
             mdto.setId(id);
             mr.addMessage(mdto);
-
-            LOGGER.info(text + " " + id);
 
         } catch (JMSException e) {
             e.printStackTrace();
