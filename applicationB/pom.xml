@@ -11,7 +11,14 @@
 
     <!-- module info -->
     <artifactId>applicationB</artifactId>
-
     <packaging>war</packaging>
+
+    <!-- dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
